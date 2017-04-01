@@ -107,7 +107,7 @@ class Module {
 
     if (isNativeModule(filename)) {
       // eslint-disable-next-line global-require, import/no-dynamic-require
-      return require(filename);
+      return eval('require')(filename);
     }
 
     const module = new Module(filename, parent);
