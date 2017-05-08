@@ -164,6 +164,12 @@ class BatchManager {
         context.duration = msSince(start);
       }
 
+      delete global.lodash;
+      delete global.jquery;
+      delete global.React;
+      delete global.ReactDOM;
+      delete global.ReactDOMServer;
+
       return response;
     });
   }
