@@ -181,15 +181,20 @@ class BatchManager {
 
   getResult(token) {
     const context = this.jobContexts[token];
-    return {
+    const resultWithoutHtml = {
       name: context.name,
-      html: context.html,
       meta: context.returnMeta,
       duration: context.duration,
       statusCode: context.statusCode,
       success: context.html !== null,
       error: context.error ? errorToSerializable(context.error) : null,
     };
+
+    console.log(resultWithoutHtml);
+
+    return Object.assign(resultWithoutHtml, {
+      html: context.html,
+    });
   }
 
   getResults() {
