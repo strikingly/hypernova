@@ -182,6 +182,7 @@ class BatchManager {
   getResult(token) {
     const context = this.jobContexts[token];
     const resultWithoutHtml = {
+      'html-length': typeof context.html === 'string' && context.html.length,
       name: context.name,
       meta: context.returnMeta,
       duration: context.duration,
