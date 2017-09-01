@@ -21,6 +21,7 @@ const defaultConfig = {
   logger: {},
   plugins: [],
   port: 8080,
+  server: express(),
 };
 
 export default function hypernova(userConfig, onServer) {
@@ -32,7 +33,8 @@ export default function hypernova(userConfig, onServer) {
 
   logger.init(config.logger);
 
-  const app = express();
+  /* could get an express instance from config */
+  const app = config.server;
 
   if (config.devMode) {
     worker(app, config, onServer);
